@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Destri Putri Natalia Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      background-color: #0d0d0d;
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.2rem 4rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #0d0d0d;
+  z-index: 1000;
+
+}
+
+
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #00ccff;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #ccc;
+      text-decoration: none;
+      margin-left: 2rem;
+      font-size: 1rem;
+    }
+
+    .nav-links a.active,
+    .nav-links a:hover {
+      color: #00ccff;
+    }
+
+    .hire-me-btn {
+      padding: 0.1rem 0.8rem;
+      background: #0d6a81;
+      border: none;
+      border-radius: 20px;
+      color: #000;
+      margin-left: 2rem;
+      cursor: pointer;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1rem;
+      cursor: pointer;
+      color: #00ccff;
+      margin-left: 2rem;
+    }
+
+    @media screen and (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 4rem;
+        background: #111;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        z-index: 1000;
+        width: 200px;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .nav-links a,
+      .hire-me-btn {
+        margin: 0.5rem 0;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      header {
+        flex-direction: row;
+        gap: 1rem;
+      }
+    }
+
+
+    .hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+  text-align: left;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+    .hero-text h1 {
+      font-size: 3rem;
+    }
+
+    .hero-text h1 span {
+      color: #00ccff;
+    }
+
+    .hero-text p {
+      margin: 1rem 0;
+      max-width: 500px;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background: transparent;
+      border: 2px solid #00ccff;
+      border-radius: 25px;
+      color: #00ccff;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .socials i {
+      margin: 1rem 1rem 0 0;
+      color: #00ccff;
+      font-size: 1.2rem;
+    }
+    .hero-image {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .hero-image img {
+  width: 260px;
+  height: 270px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative;
+  z-index: 2;
+}
+
+    .rotating-border {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 3px dashed #00ccff;
+  animation: rotate 10s linear infinite;
+  z-index: 1;
+}
+
+    @media screen and (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    .projects {
+      padding: 4rem 2rem;
+      background-color: #111;
+      text-align: center;
+    }
+
+    .projects h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #00ccff;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 0 1rem;
+    }
+
+    .project-card {
+      background: #1a1a1a;
+      padding: 1rem;
+      border-radius: 15px;
+      border: 1px solid #00ccff33;
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .project-card:hover {
+      transform: scale(1.03);
+      border-color: #00ccff;
+    }
+
+    .project-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .project-card h3 {
+      color: #00ccff;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card p {
+      font-size: 0.9rem;
+      color: #ccc;
+      margin-bottom: 1rem;
+    }
+
+    .view-btn {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 20px;
+      background: #00ccff;
+      color: #000;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .contact-section {
+    background-color: #0e0e0e;
+    padding: 4rem 2rem;
+    font-family: 'Segoe UI', sans-serif;
+    color: #ccc;
+  }
+
+  .contact-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+  }
+
+  .contact-form-wrapper {
+    flex: 1 1 600px;
+    background-color: #1a1a1a;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(15, 142, 247, 0.1);
+  }
+
+  .contact-form-wrapper h2 {
+    color: #00ccff;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .contact-form-wrapper p {
+    margin-bottom: 2rem;
+    color: #999;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .input-row {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    background-color: #121212;
+    color: #fff;
+    border: 1px solid #00ccff44;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+
+  .contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .contact-form button {
+    align-self: flex-start;
+    background-color: #00ccff;
+    color: #000;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .contact-form button:hover {
+    background-color: #00ccff;
+  }
+
+  .contact-info {
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  .info-block {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #1f1f1f;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .icon {
+    font-size: 1.5rem;
+    color: #00ccff;
+  }
+
+  .info-block h4 {
+    margin: 0;
+    color: #fff;
+  }
+
+  .info-block p {
+    margin: 0;
+    color: #ccc;
+  }
+
+  .resume-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* or center if you want vertical centering too */
+  gap: 4rem;
+  padding: 4rem;
+  background-color: #141416;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  flex-wrap: wrap; /* responsif untuk mobile */
+  text-align: left;
+}
+
+
+.resume-sidebar {
+  flex: 1;
+  max-width: 250px;
+}
+
+.resume-sidebar h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.resume-sidebar p {
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.resume-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tab {
+  background-color: #232325;
+  border: none;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.tab:hover {
+  background-color: #2f2f31;
+}
+
+.tab.active {
+  background-color: #00ccff;
+  color: #000;
+  font-weight: bold;
+}
+
+.resume-content {
+  flex: 3;
+}
+
+.resume-content h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.resume-content p {
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  color: #bcbcbc;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.experience-card {
+  background-color: #1b1c1e;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.experience-card span {
+  color: #00ccff;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.experience-card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.experience-card p {
+  font-size: 0.9rem;
+  color: #bbb;
+}
+.resume-wrapper {
+  display: flex;
+  gap: 4rem;
+  max-width: 930px;
+  width: 100%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Destri<span>.</span></div>
+    <nav>
+      <div class="hamburger" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+      <div class="nav-links" id="navLinks">
+        <a href="#home" class="active">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+        <a href="mailto:destriputrinatalia@gmail.com?subject=Let's%20Work%20Together&body=Hi%20Destri,%20I%20found%20your%20portfolio%20and%20would%20love%20to%20collaborate!" class="hire-me-btn">Hire Me</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <p>Software Developer</p>
+      <h1>Hello I’m <br><span class="typing-name">Destri Putri Natalia</span></h1>
+      <p>I excel at crafting elegant digital experiences and am proficient in various programming languages and technologies.</p>
+      <a class="download-btn" href="asset/cv.pdf" download="CV-Destri-Putri-Natalia"><i class="fas fa-download"></i> Download CV</a>
+      <div class="socials">
+        <a href="https://github.com/dstri-pntlia"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/destri-putrinatalia"><i class="fab fa-linkedin"></i></a>
+        <i class="fab fa-youtube"></i>
+        <i class="fab fa-twitter"></i>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="rotating-border"></div>
+      <img src="asset/destri2.png" alt="Destri Putri Natalia" />
+    </div>
+  </section>
+
+
+  <section class="projects" id="projects">
+    <h2>Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="asset/eyecare.png" alt="Portfolio Website">
+        <h3>eyeCare App</h3>
+        <p>EyeCare is a smart mobile application for early detection of eye diseases and cataract severity. It also helps users find nearby eye doctors and provides the latest articles on eye health and care tips.</p>
+        <a href="ecare-hikd0yjl1-alinicholas-projects.vercel.app" class="view-btn">View Project</a>
+      </div>
+      <div class="project-card">
+        <img src="asset/proxycurl.png">
+        <h3>Proxycurl</h3>
+        <p>Proxycurl is a professional data API platform that provides enriched LinkedIn and company data for recruitment and business intelligence purposes.</p>
+        <a href="https://nubela.co/proxycurl/" class="view-btn">View Project</a>
+      </div>
+      <div class="project-card">
+        <img src="asset/medeasy.png" >
+        <h3>Medeasy</h3>
+        <p>Medeasy is a telehealth platform connecting patients with doctors for online consultations, e-prescriptions, and health monitoring.</p>
+        <a href="https://medeasy.ph" class="view-btn">View Project</a>
+      </div>
+      <div class="project-card">
+        <img src="asset/cheat.png">
+        <h3>CheAT App</h3>
+        <p>CheAT is a chatbot mobile application that helps users discover recipes based on the ingredients they have and provides calorie information for each recipe suggestion.</p>
+        <a href="#" class="view-btn">View Project</a>
+      </div>
+      <div class="project-card">
+        <img src="asset/dtyping.png" >
+        <h3>Dtyping</h3>
+        <p>Dtyping is web platform designed to help users improve their typing speed and accuracy through engaging typing challenges and real-time performance tracking.</p>
+        <a href="#" class="view-btn">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="resume-section" id="resume">
+    <div class="resume-wrapper">
+    <div class="resume-sidebar">
+      <h2>Why hire me?</h2>
+      <p>Collaboration without borders, code without limits.</p>
+    </p>
+      <div class="resume-tabs">
+        <button class="tab active">Experience</button>
+        <button class="tab">Education</button>
+        <button class="tab">Skills</button>
+        <button class="tab">About me</button>
+      </div>
+    </div>
+
+    <div class="resume-content">
+      <h2 id="resume-title">My experience</h2>
+      <p id="resume-description">
+        I've worked across backend, full-stack, and cloud projects — building real solutions, learning fast, and growing with every challenge.
+      </p>
+
+      <div id="experience-content" class="resume-section-content">
+        <!-- Experience Cards -->
+        <div class="experience-grid">
+          <div class="experience-card">
+            <span>Nov 2024 – Jan 2025</span>
+            <h3>Software Engineer</h3>
+            <p>Proxycurl</p>
+          </div>
+          <div class="experience-card">
+            <span>March 2024 - Nov 2024</span>
+            <h3>Fullstack Developer</h3>
+            <p>Qbit</p>
+          </div>
+          <div class="experience-card">
+            <span>Aug 2023 – Dec 2023</span>
+            <h3>Backend Developer</h3>
+            <p>M-knows Consulting</p>
+          </div>
+          <div class="experience-card">
+            <span>Feb 2023 – Jun 2023</span>
+            <h3>Cloud Computing Cohort</h3>
+            <p>Bangkit Academy led By Google</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="education-content" class="resume-section-content" style="display: none;">
+        <ul>
+          <li><strong>2021 - 2024:</strong> Bsc in Computer Science - President University</li>
+        </ul>
+      </div>
+
+      <div id="skills-content" class="resume-section-content" style="display: none;">
+        <ul>
+          <li><strong>Languages: </strong>Javascript, Typescript, Python</li>
+          <li><strong>Frontend: </strong>React, Next.js, Tailwindcss</li>
+          <li><strong>Backend: </strong>Nodejs, Postgresql, Flask, Prisma,Redis, Express, GCP</li>
+          <li><strong>DevOps: </strong>: Docker, Kubernetes, GitHub Actions</li>
+          <li><strong>Tools:</strong>Git</li>
+        </ul>
+      </div>
+
+      <div id="about-content" class="resume-section-content" style="display: none;">
+        <p>I'm a passionate developer with expertise in both front-end and back-end technologies. I focus on building scalable, efficient solutions and thrive in collaborative, problem-solving environments.</p>
+      </div>
+    </div>
+  </div>
+
+  </section>
+
+
+  <section class="contact-section">
+    <div class="contact-container">
+      <div class="contact-form-wrapper">
+        <h2>Let's work together</h2>
+        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt sit illo esse commodi.</p> -->
+        <form class="contact-form">
+          <div class="input-row">
+            <input type="text" placeholder="First Name" required />
+            <input type="text" placeholder="Last Name" required />
+          </div>
+          <div class="input-row">
+            <input type="email" placeholder="Email" required />
+            <input type="tel" placeholder="Phone" required />
+          </div>
+          <!-- <select required>
+            <option value="">Select Service</option>
+            <option>Web Development</option>
+            <option>UI/UX Design</option>
+            <option>Consultation</option>
+          </select> -->
+          <textarea placeholder="Your Message" required></textarea>
+          <button type="submit">Send message</button>
+        </form>
+      </div>
+
+      <div class="contact-info" id="contact">
+        <div class="info-block">
+          <span class="icon">📞</span>
+          <div>
+            <h4>Phone</h4>
+            <p>(+62) 857 6665 8616</p>
+          </div>
+        </div>
+        <div class="info-block">
+          <span class="icon">✉️</span>
+          <div>
+            <h4>Email</h4>
+            <p>destriputrinatalia@gmail.com</p>
+          </div>
+        </div>
+        <div class="info-block">
+          <span class="icon">📍</span>
+          <div>
+            <h4>Address</h4>
+            <p>Jakarta, Indonesia</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <script>
+    const tabs = document.querySelectorAll(".tab");
+    const contents = {
+      "Experience": {
+        title: "My experience",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque consequat, faucibus et, et.",
+        contentId: "experience-content"
+      },
+      "Education": {
+        title: "My education",
+        description: "Here's my academic background.",
+        contentId: "education-content"
+      },
+      "Skills": {
+        title: "My skills",
+        description: "Some of the tools and technologies I use.",
+        contentId: "skills-content"
+      },
+      "About me": {
+        title: "About me",
+        description: "A little bit about who I am.",
+        contentId: "about-content"
+      }
+    };
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        // Remove 'active' class from all tabs
+        tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        // Hide all content sections
+        document.querySelectorAll(".resume-section-content").forEach(section => {
+          section.style.display = "none";
+        });
+
+        // Get the tab name and show corresponding content
+        const tabName = tab.innerText.trim();
+        const content = contents[tabName];
+
+        document.getElementById("resume-title").innerText = content.title;
+        document.getElementById("resume-description").innerText = content.description;
+        document.getElementById(content.contentId).style.display = "block";
+      });
+    });
+
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  </script>
+
+
+</body>
+</html>
